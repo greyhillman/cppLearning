@@ -1,5 +1,12 @@
 #include "main.h"
 
+// Macros are of the form
+//#define identifier substitutionText
+#define BAD_FOR_CONSTANTS 123
+// Macros are bad because they are resolved by the preprocessor and thus don't show in a
+// debugger. All you would see is BAD_FOR_CONSTANTS instead of 123.
+// Also, they live in global scope. And remember, globals are PURE EVIL!
+
 int main() {
 	int x = 10; // This is copy initialization
 	int y(10); // direct initialization
@@ -59,7 +66,23 @@ int main() {
 
 	// To make a variable constant, use the const keyword
 	const double g { 9.81 };
+	// Assigning to a const variable results in a compile-error
+	//g = 10; // will throw an compile error
 
+	// const variables can be initialized from non-const values.
+	int temp;
+	std::cout << "Enter a number: ";
+	std::cin >> temp;
+	std::cout << std::endl;
+	const double h { temp }; // run-time const
+
+	// C++ has two kinds of constants: compile-time and run-time
+	// const can be both compile-time and run-time
+	// constexpr is only used for compile-time
+	constexpr double compileConst = 123.0;
+	
+	// The best way to deal with constants is to have them all in one place.
+	// Like a header file in a namespace.
 
 	return 0;
 }
