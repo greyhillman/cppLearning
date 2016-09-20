@@ -43,6 +43,23 @@ int main() {
 
 	std::cout << i << " " << j << std::endl;
 
+	//int x = 5; //5 is a literal
+	// A literal is a constant that can't be changed.
+	// Sometimes literals have suffixes that are used to determine
+	// their type. But usually the compiler will figure it out.
+
+	// A leading 0 on an integer means its a number in octal.
+	// 0x denotes a hexadecimal number.
+	// 0b denotes a binary number in C++14
+	// C++14 also allows using ' as a digit separator
+	int f = 0b0001'1011'1011;
+
+	// A magic number is a hard-coded literal that does not
+	// have any context.
+
+	// To make a variable constant, use the const keyword
+	const double g { 9.81 };
+
 
 	return 0;
 }
