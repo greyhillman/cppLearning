@@ -74,7 +74,7 @@ int main() {
 	std::cout << "Enter a number: ";
 	std::cin >> temp;
 	std::cout << std::endl;
-	const double h { temp }; // run-time const
+	const int h { temp }; // run-time const
 
 	// C++ has two kinds of constants: compile-time and run-time
 	// const can be both compile-time and run-time
@@ -83,6 +83,51 @@ int main() {
 	
 	// The best way to deal with constants is to have them all in one place.
 	// Like a header file in a namespace.
+
+
+	// Chapter 3.4: sizeof(), comma operator, and conditional operator
+	{
+		// The sizeof() operator returns the number of bytes allocated for a
+		// variable or data type.
+		std::cout << "Number of bytes for int: " << sizeof(int) << std::endl;
+		std::cout << "Number of bytes for compileConst: " 
+				  << sizeof(compileConst) << std::endl;
+
+		// The comma operator evualates all the expressions and then returns the right
+		// most expression
+		int x = 5;
+		int y = 6;
+		int z = (++x, ++y) // x = 6, y = 7, z = 7
+		
+		// Most programmers don't use this except in for-loops
+
+		// Conditional Operator
+		// <condition> ? <expression1> : <expression2>
+		// if condition is true, return expression1. Else return expression2.
+
+		// Much similar to an if statement but the conditional operator evaluates
+		// as an expression. This means you can initialize a const based on a condition.
+		bool condition = true;
+		const int test = condition ? 30 : 20;
+		// You can't do this with an if-else statement.
+
+		// In general, use an if-else statement. But if the expression is very
+		// simple, and is more readable using a conditional operator, go ahead.
+
+	}
+
+	// Chapter 3.5: Relational operators (comparisons)
+	{
+		// Greater than: >
+		// Less than: <
+		// Greater than or equal: >=
+		// Less than or equal: <=
+		// Equality: ==
+		// Inequality: !=
+		// All return either true or false.
+
+	}
+
 
 	return 0;
 }
