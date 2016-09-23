@@ -97,7 +97,7 @@ int main() {
 		// most expression
 		int x = 5;
 		int y = 6;
-		int z = (++x, ++y) // x = 6, y = 7, z = 7
+		int z = (++x, ++y); // x = 6, y = 7, z = 7
 		
 		// Most programmers don't use this except in for-loops
 
@@ -125,6 +125,50 @@ int main() {
 		// Equality: ==
 		// Inequality: !=
 		// All return either true or false.
+
+		// You shouldn't use this operators when comparing floating-point numbers
+		// due to round-off errors.
+		// If you need to compare numbers that are close to each other,
+		// use a comparison function with some epsilon.
+
+	}
+
+	// Chapter 3.6: Logical operators
+	{
+		// NOT: !<condition>
+		// AND: <condition> && <condition>
+		// OR:  <condition> || <condition>
+
+		// && and || have short circuit evaluation
+
+		// There is not explicit XOR operator, but != has the same effect.
+	}
+
+	// Chapter 3.7: Converting between binary and decimal.
+	// Already know this stuff.
+
+	// Chapter 3.8: Bitwise operators
+	{
+		// Left shift : x << y : Moves bits in x left y times (times by 2)
+		// Right shift: x >> y : Moves bits in x right y times (divide by 2)
+		// bitwise NOT:  ~x    : Flip the bits
+		// bitwise AND: x & y  : Does AND on each pair of bits
+		// bitwise OR : x | y  : Does OR on each pair of bits
+		// bitwise XOR: x ^ y  : Does XOR on each pair of bits
+
+		// Because they work on all bits, a rule is to only use them on
+		// unsigned data types.
+
+		unsigned int x = 0b0001;
+		std::cout << "x << 1 = " << (x << 1) << std::endl;
+		// Should be 2.
+
+		x = 0b1000;
+		std::cout << "x >> 3 = " << (x >> 3) << std::endl;
+		// Should be 1
+
+		// You can also append an = to each operator to get it's
+		// assignment operator.
 
 	}
 
