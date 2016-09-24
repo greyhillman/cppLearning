@@ -207,5 +207,79 @@ int main() {
 	}
 
 
+	// Chapter 4.1: Blocks (compound statements)
+	{
+		// A block (compound statement) is a group of statements that is 
+		// treated by the compiler as if it were a single statement.
+		// Blocks are started with a { and end with a }.
+	}
+
+	// Chapter 4.1a: Local variables, scope, and duration
+	{
+		// scope is the area in which a variable is accessible
+		// duration determines where it is created and destroyed
+
+		// local variables are variables defined inside a block
+		// Local variables have automatic duration, which means they
+		// are created at the point of definition, and are destroyed
+		// when the block they are defined in is exited.
+		// Local variables have block scope (local scope), which means they
+		// enter scope at the point of declaration and go out of scope at the
+		// end of the block that they are defined in.
+
+		// Note: You can name a variable inside a nested block with the same
+		// name as a variable inside the outer block.
+		// This is called name hiding or shadowing.
+
+		// Rule: Avoid using nested variables with the same names
+		// as variables in an outer block.
+
+		// Rule: Defined variables in the smallest scope possible.
+		// By limiting the scope of a variable, you reduce the complexity
+		// of the program because the number of active variables is reduced.
+		// It also makes it easier to see where the variables are used.
+
+	}
+
+	// Chapter 4.2: Global variables and linkage
+	{
+		// Variables declared outside of a block are called global variables.
+		// Global variables have static duration, which means they are created
+		// when the program starts and are destroyed when it ends.
+		// Global variables have global scope (also called global namespace scope,
+		// or file scope), which means they are visible until the end of the file 
+		// in which they are declared.
+
+		// When a global variable is shadowed, but you want to access the global
+		// one, use the globa scope operator (::).
+
+		// A variable's linkage determines whether multiple instances of an
+		// identifier refer to the same variable or not.
+		// There are three types: no, internal, or external linkage.
+
+		// no linkage means a variable can only be referred to from the limited
+		// scope it exists in.
+
+		// internal linkage means a variable can only be used within the file
+		// they are defined in. (internal variable)
+
+		// external linkage means a variable can be used in the file they are
+		// defined in and other files too. (external variable)
+
+		// To make a global variable internal, use the static keyword.
+		// To make a global variable external, use the extern keyword.
+
+		// By default, global non-const variables are assumed to be external.
+		// Global const variables are assumed to be internal.
+
+		
+		// Sometimes you will have a header file with a bunch of constants.
+		// Everytime you include that file, the constants are copied. This
+		// leads to code bloat. To prevent this, try using external variables.
+		// Forward-declare the variables in the header file and have a cpp file
+		// with the actual variables and their values.
+	}
+
+
 	return 0;
 }
