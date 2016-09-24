@@ -172,6 +172,40 @@ int main() {
 
 	}
 
+	// Chapter 3.8a: Bit flags and masks
+	{
+		// Sometimes we want to use the invidivual bits in a
+		// data type. This is usually used for more memory-intensive
+		// tasks.
+		// Most time they are used for flags
+		unsigned char flags = 0b1101'0110;
+
+		// To get a specific bit, use bitwise AND
+		if (flags & 0b1000'0000) {
+			std::cout << "MSB is set." << std::endl;
+		}
+
+		// To turn a bit on, use bitwise OR
+		flags |= 0b0010'0000;
+
+		// To turn a bit off, use bitwise AND with an inverse bit pattern
+		flags &= ~0b0010'0000;
+
+		// To toggle a bit, use bitwise XOR
+		flags ^= 0b0010'0000;
+		flags ^= 0b0100'0000 | 0b1000'0000; // flips both
+
+		// std::bitset makes for easier use of bit flags and masks
+		std::bitset<8> bits(0b0000'0001); // Start with the LSB set
+
+		bits.set(4); // std::bitset uses indices. So this sets the 5th bit on
+		bits.flip(7); // MSB
+		bits.reset(7); // MSB
+
+		std::cout << bits << std::endl;
+
+	}
+
 
 	return 0;
 }

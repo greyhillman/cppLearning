@@ -5,3 +5,6 @@
 #include <cstdint>
 // Defines fixed-width integers in the std namespace
 
+#include <bitset>
+// Used for easier use of bitflags and masks
+
