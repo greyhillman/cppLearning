@@ -280,6 +280,24 @@ int main() {
 		// with the actual variables and their values.
 	}
 
+	// Chapter 4.3b
+	{
+		// a naming collision is when two identifiers with the same name
+		// appear in the same scope
+
+		// A namespace defines an area of code in which all identifiers are 
+		// guaranteed to be unique.
+
+		// global variables and normal functions reside in the global namespace
+
+		// We can declare our own namespaces via the namespace keyword
+
+		// We can access something inside a namespace using the 
+		// scope resolution operator (::)
+
+
+	}
+
 
 	return 0;
 }
