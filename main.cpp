@@ -7,48 +7,75 @@
 // debugger. All you would see is BAD_FOR_CONSTANTS instead of 123.
 // Also, they live in global scope. And remember, globals are PURE EVIL!
 
+void printSeparator() {
+	std::cout << std::endl;
+	std::cout << "---------------------------------------------" << std::endl;
+	std::cout << std::endl;
+}
+
 int main() {
-	int x = 10; // This is copy initialization
-	int y(10); // direct initialization
-	float z{10}; // uniform initialization - preferred for c++11
 
-	std::cout << "x is " << x << std::endl;
+	// The different forms of initialization
+	{
+		int x = 10; // copy
+		int y(10); // direct
+		int z{10}; // uniform - preferred for c++11
+	}
 
-	int a; // This is a declaration
-	int b = 10; // This is initialization
+	printSeparator();
 
-	// The sizeof operator returns the amount of bytes
-	// that a particular data type uses
-	// This is because C++ only guarantees a minimum 
-	// size for primitive types because of performance
-	// reasons on different architectures
-	std::cout << "int takes up " << sizeof(int) << " bytes" << std::endl;
+	// sizeof operator
+	{
+		// sizeof outputs the number of bytes allocated for a type or variable
+		std::cout << "sizeof(char) = " << sizeof(char) << std::endl;
+		std::cout << "sizeof(int) = " << sizeof(int) << std::endl;
 
-	float c = 5.0f; // Use f to indicate float
-	// Default is double
+		int x[3] = {10, 11, 12};
+		std::cout << "sizeof(x) = " << sizeof(x) << std::endl;
 
-	double d = 5e10; // = 5 x 10^10
-	// The e denotes scientific notation
+		float z{ 1.5 };
+		std::cout << "sizeof(z) = " << sizeof(z) << std::endl;
 
-	// Because C++ is based on C, 
-	// 1 == true
-	// 0 == false
-	bool boolean = true;
-	std::cout << boolean << std::endl;
-	
-	// std::boolalpha makes it so std::cout prints
-	// out 'true' and 'false' instead of 1 and 0
-	std::cout << std::boolalpha;
-	std::cout << boolean << std::endl;
+		// C++ only guarantees a minimum number of bytes for each
+		// data type because it wanted compiler writers to pick
+		// the approriate size to use to have the best performance
+		// on their hardware.
+	}
 
+	printSeparator();
 
-	// Type casting
-	// use static_cast<new_type>(expression)
-	// to convert between different representations
-	int i{97};
-	char j{static_cast<char>(i)};
+	// scientific notation
+	{
+		double d = 5e10;
+		std::cout << d << std::endl;
+	}
 
-	std::cout << i << " " << j << std::endl;
+	printSeparator();
+
+	// boolean
+	{
+		// 0 == false
+		// anything else if true
+		bool boolean = true;
+		std::cout << boolean << std::endl;
+
+		// std::boolalpha sets it so that std::cout prints
+		// out 'true' and 'false' instead of 1 and 0
+		std::cout << std::boolalpha;
+		std::cout << boolean << std::endl;
+
+	}
+
+	printSeparator();
+
+	// type casting
+	{
+		int i {97};
+		char j {static_cast<char>(i)};
+
+		std::cout << i << " " << j << std::endl;
+
+	}
 
 	//int x = 5; //5 is a literal
 	// A literal is a constant that can't be changed.
