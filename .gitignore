@@ -1,2 +1,9 @@
-main
-*.o
+
+# ignore executables
+*
+!*.*
+!*/
+!*.cpp
+!*.h
+!Makefile
+
