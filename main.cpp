@@ -238,6 +238,10 @@ int main() {
 		// Note: You can name a variable inside a nested block with the same
 		// name as a variable inside the outer block.
 		// This is called name hiding or shadowing.
+		int x = 5;
+		{
+			float x = 5; // this x shadows the other x
+		}
 
 		// Rule: Define variables in the smallest scope possible.
 		// By limiting the scope of a variable, you reduce the complexity
@@ -249,14 +253,6 @@ int main() {
 
 	// Chapter 4.2: Global variables and linkage
 	{
-		// Global variables have static duration, which means they are created
-		// when the program starts and are destroyed when it ends.
-		// Global variables have global scope (also called global namespace scope,
-		// or file scope)
-
-		// When a global variable is shadowed, but you want to access the global
-		// one, use the globa scope operator (::).
-
 		// A variable's linkage determines whether multiple instances of an
 		// identifier refer to the same variable or not.
 		// There are three types: no, internal, or external linkage.
